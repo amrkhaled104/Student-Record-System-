@@ -1,0 +1,40 @@
+# depslib dependency file v1.0
+1714124665 source:c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\admin.c
+	"include.h"
+
+1714121119 c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\include.h
+	<stdio.h>
+	<stdlib.h>
+	"Std_Type.h"
+	"mangment.h"
+	"login.h"
+	"Admin.h"
+	"User.h"
+	<string.h>
+
+1714120903 c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\std_type.h
+
+1714120903 c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\mangment.h
+	"Std_Type.h"
+
+1714120932 c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\login.h
+	"include.h"
+
+1714120903 c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\admin.h
+
+1714120903 c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\user.h
+	<conio.h>
+	<dos.h>
+
+1714121333 source:c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\login.c
+	"include.h"
+
+1714120903 source:c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\main.c
+	"include.h"
+
+1714127665 source:c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\mangment.c
+	"include.h"
+
+1714121333 source:c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\user.c
+	"include.h"
+
