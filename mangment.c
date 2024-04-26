@@ -80,12 +80,25 @@ void save_data()
 	}
 }
 
-void load_data() {
+void clear_list()
+ {
+    while (Head != NULL)
+        {
+        struct STUDENTS *ptr = Head;
+        Head = Head->NEXT;
+        free(ptr);
+        }
+ }
+
+void load_data()
+ {
+    clear_list();
     FILE *file = fopen("STUDENTS.csv", "r");
-    if (file == NULL) {
+    if (file == NULL)
+        {
         printf("Error opening file.\n");
         exit(1);
-    }
+        }
 
     char line[200];
     while (fgets(line, sizeof(line), file)) {
@@ -104,4 +117,3 @@ void load_data() {
 
     fclose(file);
 }
-

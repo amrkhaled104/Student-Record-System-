@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1714124665 source:c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\admin.c
+1714158275 source:c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\admin.c
 	"include.h"
 
 1714121119 c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\include.h
@@ -14,7 +14,7 @@
 
 1714120903 c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\std_type.h
 
-1714120903 c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\mangment.h
+1714157258 c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\mangment.h
 	"Std_Type.h"
 
 1714120932 c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\login.h
@@ -32,7 +32,7 @@
 1714120903 source:c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\main.c
 	"include.h"
 
-1714127665 source:c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\mangment.c
+1714157258 source:c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\mangment.c
 	"include.h"
 
 1714121333 source:c:\users\mylap\desktop\hhhhhhhhhhhhhh\aa\aaahhhhhhh\user.c

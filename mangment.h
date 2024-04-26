@@ -14,4 +14,5 @@ void Error(ES current_error_state);
 ES take_number(u32 *choise);
 void save_data();
 void load_data();
+void clear_list();
 #endif

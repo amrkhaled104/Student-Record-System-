@@ -82,19 +82,24 @@ void Add_student_record()
         }
         else
         {
-            CheckID=CheckID->NEXT;
+            CheckID = CheckID->NEXT;
+            if(CheckID)
+            {
+              goto bb;
+            }
+
+        }
         }
         attemps--;
         if(attemps==0)
             goto aa;
-        }
     }
+    bb:
 	fflush(stdin);
 	printf("                                      Now You Enter Data Please Foucs\n\n");
 	printf("                                      Enter Name:\n");gets(SNew->Name);
 	fflush(stdin);
 	printf("                                      Enter Grade:\n");scanf("%d",&SNew->Grade);
-	//printf("                                      Enter ID:\n");scanf("%d",&SNew->Id);
 	printf("                                      Enter Gender:\n");scanf("%s",&SNew->Gender);
 	printf("                                      Enter Password:\n");scanf("%s",&SNew->Password);
 	aa:
