@@ -10,23 +10,35 @@ struct STUDENTS *Helpgrade=NULL;
 struct STUDENTS*Helpname = NULL;
 struct STUDENTS *CheckID = NULL;
 struct STUDENTS *HelpCheck =NULL;
-
+extern u32 Logout;
 void Admin_choice()
 {
 	while(1){
+		      u32 choice=100;
+             b:if(choice==0) {
+				 Logout=1;
+                 break;				
+			 } 
 
 
-        u32 choice=0;
-		while(1)
-		{
+		a:while(1)
+		{	     
+            printf("                                                                  [3]-->View              \n"); 	
+	      	printf("                              [1]-->Add student record                                      [2]-->Remove student record\n");
+		    printf("                              [4]-->Edit admin password                                     [5]-->Edit Info Student \n");
+			printf("                                                                 [0]-->LOGOUT\n");
 
-	      	printf("                              1-->Add student record                                      2-->Remove student record\n");
-		    printf("                                                                  3-->View              \n");
-		    printf("                              4-->Edit admin password                                     5-->Edit Info Student \n");
 			ES current_error_state=take_number(&choice);
 		    Error(current_error_state);
 			if(current_error_state==valid) break;
 		}
+		if(choice!=0&&choice!=1&&choice!=2&&choice!=3&&choice!=4&&choice!=5)
+		{
+			clearScreen();
+			 printf("                            Foucs Please ([1] or [2]or [3]or [4]or [5])\n\n ");
+			goto a;
+	    }
+		if(choice==0) goto b;
        clearScreen();
 	   switch(choice)
 	   {
@@ -46,9 +58,22 @@ void Admin_choice()
 				Edito();
 		    break;
 	   }
-	   		printf("\n                       Anthor Process(1->Y  | 0->N)\n");u8 dession;scanf("%d",&dession);
+	   u32 dessionn;
+	  aa:while(1)
+	   {
+		    printf("\n                       Anthor Process([1]->Y  | [0]->N)\n");
+			ES current_error_state=take_number(&dessionn);
+		    Error(current_error_state);
+	        if(current_error_state==valid) break;
+	   }
 			clearScreen();
-			if (dession!=1) break;
+			if(dessionn!=0&&dessionn!=1)
+		    {
+			    printf("Foucs Please ([1] or [0])\n\n ");
+				goto aa;
+			}
+			else if (dessionn==0) break;
+   
    }
 }
 
@@ -238,13 +263,19 @@ void Edito()
     while(1)
     {
 		u32 choice;
-		while(1)
+		aaa:while(1)
 		{
 			printf("                       1-->Edit Student Grade                       2-->Edit Student Name\n");
 			ES current_error_state=take_number(&choice);
 			Error(current_error_state);
 			if(current_error_state==valid) break;
 		}
+	   if(choice!=1&&choice!=2)
+		{
+			clearScreen();
+			 printf("                            Foucs Please ([1] or [2])\n\n ");
+			goto aaa;
+	    }
 
 		switch(choice)
 		{
@@ -255,9 +286,22 @@ void Edito()
 			Edit_student_name();
 			break;
 		}
-		printf("\n                       Anthor Process(1->Y  | 0->N)\n");u32 dession;scanf("%d",&dession);
-		clearScreen();
-		if (dession!=1) break;
+	   u32 dessionn;
+	  aa:while(1)
+	   {
+		    printf("\n                       Anthor Process([1]->Y  | [0]->N)\n");
+			ES current_error_state=take_number(&dessionn);
+		    Error(current_error_state);
+	        if(current_error_state==valid) break;
+	   }
+			clearScreen();
+			if(dessionn!=0&&dessionn!=1)
+		    {
+			    printf("Foucs Please ([1] or [0])\n\n ");
+				goto aa;
+			}
+			else if (dessionn==0) break;
+   
    }
 }
 
@@ -277,8 +321,6 @@ void Edit_student_grade()
         if (Helpgrade->Id == student_id)
         {
             found = 1;
-            //printf("                 WELCOME %s                ",Helpgrade ->Name) ملوش لازمه اصل الادمن الي هيعدل ف انت بترحب باليوزر ليه ؟
-
             printf("                       Enter new grade for student : ");
             scanf("%d",&new_grade);
             Helpgrade->Grade = new_grade;
