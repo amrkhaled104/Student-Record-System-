@@ -2,6 +2,7 @@
 
 u32 main()
 {
+	clearScreen();
 	load_data();
 	system_init();
 	save_data();
@@ -13,7 +14,7 @@ void system_init()
 	while(1)
 	{
 		u32 Logout;
-		if(i!=0)
+		if(i++!=0)
 		{
 			
 		
@@ -28,6 +29,8 @@ void system_init()
 		  	if(Logout==0)
 		    {
 		      	Logout=1;
+				clearScreen();
+				printf("                            Bya Bya Htw7shniiiiiiiiii ");
 			    break;
 		    } 
 		    else
@@ -63,7 +66,7 @@ void system_init()
 			Error(current_error_state);
 			if(current_error_state==valid) break;
 		}
-
+		clearScreen();
 		switch(choice)
 		{
 			case 1:

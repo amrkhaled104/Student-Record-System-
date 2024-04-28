@@ -32,6 +32,7 @@ void user_choice()
 	    printf("\n                 Do You Want Back To Main choice`s If you want Enter 1 and If Not Enter 0\n\n");
 	    u8 dession;
 	    scanf("%d",&dession);
+		clearScreen();
 	    if (dession!=1)
             break;
    }
@@ -94,6 +95,7 @@ void Edit()
     printf("\n                 Do You Want Back To Sub choice`s Enter 1 And If Not Enter 0\n\n");
     u32 dession;
     scanf("%d",&dession);
+	clearScreen();
     if (dession!=1)
         break;
    }
@@ -103,7 +105,7 @@ void edit_your_password()
     u8 New_pass[MAX_LENGTH];
     u8 c;
     u32 i;
-    printf("                       enter New Password:\n\n");
+    printf("                       Enter New Password:\n\n");
     for (i = 0; i < MAX_LENGTH; i++) {
         c = getch();
         if(c == 13)
@@ -117,7 +119,7 @@ void edit_your_password()
 void edit_your_name()
 {
     u8 New_Name[MAX_LENGTH];
-    printf("                       enter New Name:\n\n");
+    printf("                       Enter New Name:\n\n");
     scanf("%s",&New_Name);
 	strcpy(ptrfind->Name,New_Name);
 }

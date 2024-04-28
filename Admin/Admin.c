@@ -27,7 +27,7 @@ void Admin_choice()
 		    Error(current_error_state);
 			if(current_error_state==valid) break;
 		}
-
+       clearScreen();
 	   switch(choice)
 	   {
 		    case 1:
@@ -47,6 +47,7 @@ void Admin_choice()
 		    break;
 	   }
 	   		printf("\n                       Anthor Process(1->Y  | 0->N)\n");u8 dession;scanf("%d",&dession);
+			clearScreen();
 			if (dession!=1) break;
    }
 }
@@ -96,8 +97,8 @@ void Add_student_record()
 	
 	printf("                                      Enter Gender:\n");scanf("%s",&SNew->Gender);
 	printf("                                      Enter Password:\n");
-	u8 c;
-    for (u32 i = 0; i < MAX_LENGTH; i++)
+	u8 c;u32 i;
+    for (i = 0; i < MAX_LENGTH; i++)
     {
         c = getch();
         if(c == 13)
@@ -105,6 +106,7 @@ void Add_student_record()
         printf("*");
         SNew->Password[i]=c;
     }
+	SNew->Password[i] = '\0';
 }
 void View()
    {
@@ -156,9 +158,9 @@ void View_student_record ()
     u32 user_id=0;
     printf("Enter Id :");scanf("%d",&user_id);
 	Helpveiw2=Head;
+	int i=0;
 	while(Helpveiw2!=NULL)
 	{
-		int i=0;
 		if(i++==0)    printf("                         Student Information                     \n");
 
 	  if(Helpveiw2->Id==user_id)
@@ -175,7 +177,6 @@ void View_student_record ()
 void Remove_student_record()
  {
    u32 User_Id;printf("\n                       Enter Id :");scanf("%d",&User_Id);
-// عايزين نضيف لو اليوز مكنشي موجود اصلا
    if(Head)
    {
 	  Helpdelete=Head;
@@ -198,10 +199,11 @@ void Remove_student_record()
       Saveprev=Helpdelete;
       Helpdelete=Helpdelete->NEXT;
     }
+	printf("                                                              Done");
    }
    else
    {
-	   printf("No Data\n");
+	   printf("                                                           No Data\n");
    }
 }
 void Edit_admin_password()
@@ -209,13 +211,13 @@ void Edit_admin_password()
 	char username[MAX_LENGTH];
     char newPassword[MAX_LENGTH];
 	// اسم المستخدم الحالي وكلمه المرور الجديده
-    printf("Enter username: ");
+    printf("                                                          Enter Username: ");
     scanf("%s", username);
-    printf("Enter new password: ");
+    printf("                                                          Enter New Password: ");
     scanf("%s", newPassword);
 
 	updatePasswordInFile(username, newPassword);
-	printf("Password updated successfully!\n");
+	printf("                                                          Password Updated Successfully!\n");
 }
 // تحديث كلمة المرور في الملف
 
@@ -254,6 +256,7 @@ void Edito()
 			break;
 		}
 		printf("\n                       Anthor Process(1->Y  | 0->N)\n");u32 dession;scanf("%d",&dession);
+		clearScreen();
 		if (dession!=1) break;
    }
 }
@@ -280,7 +283,7 @@ void Edit_student_grade()
             scanf("%d",&new_grade);
             Helpgrade->Grade = new_grade;
 
-            printf("                       Grade for student %s has been updated successfully \nI doubt that you are falsifying the answer hhhh", Helpgrade ->Name);
+            printf("\n\n                       Grade for student %s has been updated successfully \n                       I doubt that you are falsifying the answer hhhh", Helpgrade ->Name);
             break;
         }
         Helpgrade = Helpgrade ->NEXT;
@@ -288,7 +291,7 @@ void Edit_student_grade()
 
     if (!found)
     {
-        printf("                       Student with ID %d not found You cannnnot Hack the system \n", student_id);
+        printf("\n\n                       Student with ID %d Not Found  \n", student_id);
     }
 }
 
@@ -314,7 +317,7 @@ void Edit_student_name()
 				fflush(stdin);
 				gets(new_name);
 
-				printf(                       "Name for student %s has been updated successfullly and become %s ", Helpgrade ->Name ,new_name);
+				printf("                                 Name updated successfullly and become %s ",Helpgrade->Name,new_name);
 				strcpy(Helpname->Name,new_name);
 				break;
 			}
@@ -323,6 +326,6 @@ void Edit_student_name()
 
 		if (!found)
 		{
-			printf("                       Student with ID %d not found You cannnnot Hack the system \n", student_id);
+			printf("                       Student with ID %d Not Found \n", student_id);
 		}
 }

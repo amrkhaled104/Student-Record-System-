@@ -40,45 +40,60 @@ ES login(u32 choice)
 					file_password[i++] = c;
 				}
 				file_password[i] = '\0'; // إضافة نهاية السلسلة
-
-				// أغلق ملف النص
-				fclose(file);
-
-				u8 c;
-				printf("\n                                    Enter Username:");
-				scanf("%s", username);
-				printf("                                      Enter password:");
+				u8 attempts=3,Flag=0;
+				while(attempts--)
+				{
+				// اطلب من المستخدم إدخال اسم المستخدم وكلمة المرور
+				printf("                         Enter username:");
+				scanf("%s", &username);
+				printf("                         Enter password:");
 				for (i = 0; i < MAX_LENGTH; i++)
-                {
-                c = getch();
-                if(c == 13)
-                   break;
-                printf("*");
-                password[i]=c;
-                }
-
+				{
+					c = getch();
+					if(c == 13)
+					   break;
+					printf("*");
+					password[i]=c;
+				}
 				// قارن الاسم وكلمة المرور
 				if (strcmp(username, file_username) == 0 && strcmp(password, file_password) == 0)
 				{
-
-					printf("\n\t\t\t              <-Login successful!-> \n\n\n"
-					"\n\t\t\t        ****************************************"
-					"\n\t\t\t        ***********             ****************"
-					"\n\t\t\t        ***********             ****************"
-					"\n\t\t\t        ***********             ****************"
-					"\n\t\t\t        =    <WELCOME Amooooooooooooor>        ="
-					"\n\t\t\t        ***********             ****************"
-					"\n\t\t\t        ***********             ****************"
-					"\n\t\t\t        ***********             ****************"
-					"\n\t\t\t        ****************************************"
-					"\n\n");
-					return valid;
-				}
+				Flag=0;
+				clearScreen();
+									printf("\n\t\t\t              Login Successful! \n\n\n\n\n\n"
+									"\n\t\t\t                                ****************************************"
+									"\n\t\t\t                                ***********             ****************"
+									"\n\t\t\t                                ***********             ****************"
+									"\n\t\t\t                                ***********             ****************"
+									"\n\t\t\t                                =      <WELCOME Amooooooooooooor>      ="
+									"\n\t\t\t                                ***********             ****************"
+									"\n\t\t\t                                ***********             ****************"
+									"\n\t\t\t                                ***********             ****************"
+									"\n\t\t\t                                ****************************************"
+									"\n\n");
+									return valid;
+				} 
 				else
 				{
-					printf("\n\n                                      Invalid username or password\n");
-					return notvalid;
-	            }
+				Flag=1;
+				if(attempts!=0){
+				   clearScreen();
+				   printf("                                  Invalid username or password You Can Try Again.\n");
+				}
+				}
+				}
+				if(Flag==1)
+				{
+					clearScreen();
+				    printf("No matter what you do, thief, you will not be able to hack the system\n");
+				    return 0;
+				}
+				// أغلق ملف النص
+				fclose(file);
+
+				break;
+
+
 
 
 		//check user
@@ -117,3 +132,4 @@ ES login(u32 choice)
 
 }
 
+//gcc Admin.c login.c User.c main.c mangment.c -o proj.exe
