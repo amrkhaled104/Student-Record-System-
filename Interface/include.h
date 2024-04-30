@@ -10,6 +10,7 @@
 #include "Admin.h"
 #include "User.h"
 #include <string.h>
+#include <unistd.h>
 #define MAX_LENGTH 100
 
 #endif
