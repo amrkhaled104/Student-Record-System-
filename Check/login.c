@@ -45,7 +45,7 @@ ES login(u32 choice)
 				{
 				// اطلب من المستخدم إدخال اسم المستخدم وكلمة المرور
 				printf("                         Enter username:");
-				scanf("%s", &username);
+				scanf("%s", &username);deco();
 				printf("                         Enter password:");
 				for (i = 0; i < MAX_LENGTH; i++)
 				{
@@ -55,13 +55,15 @@ ES login(u32 choice)
 					printf("*");
 					password[i]=c;
 				}
+				password[i]='\0';
+				deco();
 				// قارن الاسم وكلمة المرور
 				if (strcmp(username, file_username) == 0 && strcmp(password, file_password) == 0)
 				{
 				Flag=0;
 				clearScreen();
-									printf("\n\t\t\t              Login Successful! \n\n\n\n\n\n"
-									"\n\t\t\t                                ****************************************"
+									printf("\n\t\t\t              Login Successful! \n\n\n\n\n\n");sleep(3);deco();
+							 printf("\n\t\t\t                                ****************************************"
 									"\n\t\t\t                                ***********             ****************"
 									"\n\t\t\t                                ***********             ****************"
 									"\n\t\t\t                                ***********             ****************"
@@ -72,6 +74,7 @@ ES login(u32 choice)
 									"\n\t\t\t                                ****************************************"
 									"\n\n");
 									return valid;
+									deco();
 				} 
 				else
 				{
@@ -106,14 +109,14 @@ ES login(u32 choice)
 				{
 					if(Help->Id==ID_CHECK)
 					{
-						printf("                                      <Login successful!>\n\n                                    <WELCOME %s>\n",Help->Name);
+						printf("                                      <Login successful!>\n\n                                    <WELCOME %s>\n",Help->Name);sleep(2);deco();
 						return valid;
 					}
 					else if (Help->Id!=ID_CHECK)
 					{
 						if(Help->NEXT==NULL)
 						{
-							printf("                                      \nThis Id Doesnt Exist\n");
+							printf("                                      \nThis Id Doesnt Exist\n");sleep(2);deco;
 							break;
 						}
 					}
@@ -122,7 +125,7 @@ ES login(u32 choice)
 			}
 			else
 			{
-				printf("                                      No Data Exist\n");
+				printf("                                      No Data Exist\n");sleep(2);deco();
 			 return notvalid;
 			}
 
