@@ -14,7 +14,7 @@ extern u32 Logout;
 void Admin_choice()
 {
 	while(1){
-		      u32 choice=100;
+		     u32 choice=100;
              b:if(choice==0) {
 				 Logout=1;
                  break;				
@@ -30,12 +30,13 @@ void Admin_choice()
 
 			ES current_error_state=take_number(&choice);
 		    Error(current_error_state);
+		    deco();
 			if(current_error_state==valid) break;
 		}
 		if(choice!=0&&choice!=1&&choice!=2&&choice!=3&&choice!=4&&choice!=5)
 		{
 			clearScreen();
-			 printf("                            Foucs Please ([1] or [2]or [3]or [4]or [5])\n\n ");
+			 printf("                            Foucs Please ([1] or [2]or [3]or [4]or [5])\n\n ");sleep(2);deco();
 			goto a;
 	    }
 		if(choice==0) goto b;
@@ -64,12 +65,13 @@ void Admin_choice()
 		    printf("\n                       Anthor Process([1]->Y  | [0]->N)\n");
 			ES current_error_state=take_number(&dessionn);
 		    Error(current_error_state);
+			deco();
 	        if(current_error_state==valid) break;
 	   }
 			clearScreen();
 			if(dessionn!=0&&dessionn!=1)
 		    {
-			    printf("Foucs Please ([1] or [0])\n\n ");
+			    printf("Foucs Please ([1] or [0])\n\n ");sleep(2);deco();
 				goto aa;
 			}
 			else if (dessionn==0) break;
@@ -97,14 +99,14 @@ void Add_student_record()
 	SNew->NEXT=NULL;
 	fflush(stdin);
 	printf("                                      Now You Enter Data Please Foucs\n\n");
-	printf("                                      Enter Name:\n");gets(SNew->Name);
+	printf("                                      Enter Name:\n");gets(SNew->Name);deco();
 	fflush(stdin);
-	printf("                                      Enter Grade:\n");scanf("%d",&SNew->Grade);
+	printf("                                      Enter Grade:\n");scanf("%d",&SNew->Grade);deco();
 	u32 flag=0;
 	while(1)
     {
 		CheckID=Head;
-		printf("                                      Enter ID:\n");scanf("%d",&SNew->Id);
+		printf("                                      Enter ID:\n");scanf("%d",&SNew->Id);deco();
         while(CheckID->NEXT!=NULL)
         {
             if(CheckID->Id==SNew->Id)
@@ -120,7 +122,7 @@ void Add_student_record()
 		if(CheckID->NEXT==NULL) break;
     }
 	
-	printf("                                      Enter Gender:\n");scanf("%s",&SNew->Gender);
+	printf("                                      Enter Gender:\n");scanf("%s",&SNew->Gender);deco();
 	printf("                                      Enter Password:\n");
 	u8 c;u32 i;
     for (i = 0; i < MAX_LENGTH; i++)
@@ -132,6 +134,7 @@ void Add_student_record()
         SNew->Password[i]=c;
     }
 	SNew->Password[i] = '\0';
+	deco();
 }
 void View()
    {
@@ -141,6 +144,7 @@ void View()
 		{
 			ES current_error_state=take_number(&Number);
 		    Error(current_error_state);
+			deco();
 			if(current_error_state==valid) break;
 		}
 
@@ -162,7 +166,7 @@ void View_all_records()
 	u32 counter_Client=0;
 	if(Helpveiw1==NULL)
 	{
-		printf("                                                     Mafesh Lsa Tolaaaab Ya Admin\n");
+		printf("                                                     Mafesh Lsa Tolaaaab Ya Admin\n");sleep(2);deco();
 	}
 	int i=0;
 	while(Helpveiw1!=NULL)
@@ -197,7 +201,7 @@ void View_student_record ()
 	  Helpveiw2= Helpveiw2->NEXT ;
 	}
 
-	if (!found) printf("                       Student with ID %d Not Found Ya Admoooooooooooooooooon.\n", user_id);
+	if (!found) printf("                       Student with ID %d Not Found Ya Admoooooooooooooooooon.\n", user_id);sleep(2);deco();
 }
 void Remove_student_record()
  {
@@ -224,11 +228,11 @@ void Remove_student_record()
       Saveprev=Helpdelete;
       Helpdelete=Helpdelete->NEXT;
     }
-	printf("                                                              Done");
+	printf("                                                              Done");sleep(2);deco();
    }
    else
    {
-	   printf("                                                           No Data\n");
+	   printf("                                                           No Data\n");sleep(2);deco();
    }
 }
 void Edit_admin_password()
@@ -237,12 +241,12 @@ void Edit_admin_password()
     char newPassword[MAX_LENGTH];
 	// اسم المستخدم الحالي وكلمه المرور الجديده
     printf("                                                          Enter Username: ");
-    scanf("%s", username);
+    scanf("%s", username);deco();
     printf("                                                          Enter New Password: ");
-    scanf("%s", newPassword);
+    scanf("%s", newPassword);deco();
 
 	updatePasswordInFile(username, newPassword);
-	printf("                                                          Password Updated Successfully!\n");
+	printf("                                                          Password Updated Successfully!\n");sleep(2);deco();
 }
 // تحديث كلمة المرور في الملف
 
@@ -268,12 +272,13 @@ void Edito()
 			printf("                       1-->Edit Student Grade                       2-->Edit Student Name\n");
 			ES current_error_state=take_number(&choice);
 			Error(current_error_state);
+			deco();
 			if(current_error_state==valid) break;
 		}
 	   if(choice!=1&&choice!=2)
 		{
 			clearScreen();
-			 printf("                            Foucs Please ([1] or [2])\n\n ");
+			 printf("                            Foucs Please ([1] or [2])\n\n ");sleep(2);deco();
 			goto aaa;
 	    }
 
@@ -292,12 +297,13 @@ void Edito()
 		    printf("\n                       Anthor Process([1]->Y  | [0]->N)\n");
 			ES current_error_state=take_number(&dessionn);
 		    Error(current_error_state);
+			deco();
 	        if(current_error_state==valid) break;
 	   }
 			clearScreen();
 			if(dessionn!=0&&dessionn!=1)
 		    {
-			    printf("Foucs Please ([1] or [0])\n\n ");
+			    printf("Foucs Please ([1] or [0])\n\n ");sleep(2);deco();
 				goto aa;
 			}
 			else if (dessionn==0) break;
@@ -314,7 +320,7 @@ void Edit_student_grade()
     u32 found = 0;
 
     printf("                       Enter student ID: ");
-    scanf("%d", &student_id);
+    scanf("%d", &student_id);deco();
 
     while (Helpgrade != NULL)
     {
@@ -322,10 +328,10 @@ void Edit_student_grade()
         {
             found = 1;
             printf("                       Enter new grade for student : ");
-            scanf("%d",&new_grade);
+            scanf("%d",&new_grade);deco();
             Helpgrade->Grade = new_grade;
 
-            printf("\n\n                       Grade for student %s has been updated successfully \n                       I doubt that you are falsifying the answer hhhh", Helpgrade ->Name);
+            printf("\n\n                       Grade for student %s has been updated successfully \n                       I doubt that you are falsifying the answer hhhh", Helpgrade ->Name);sleep(2);deco();
             break;
         }
         Helpgrade = Helpgrade ->NEXT;
@@ -333,7 +339,7 @@ void Edit_student_grade()
 
     if (!found)
     {
-        printf("\n\n                       Student with ID %d Not Found  \n", student_id);
+        printf("\n\n                       Student with ID %d Not Found  \n", student_id);sleep(2);deco();
     }
 }
 
@@ -347,7 +353,7 @@ void Edit_student_name()
 		Helpname=Head;
 
 		printf("                       Enter student ID: ");
-		scanf("%d",&student_id);
+		scanf("%d",&student_id);deco();
 
 		while (Helpname != NULL)
 		{
@@ -357,10 +363,10 @@ void Edit_student_name()
 				printf("                       Enter new name for student : ");
 
 				fflush(stdin);
-				gets(new_name);
+				gets(new_name);deco();
 
-				printf("                                 Name updated successfullly and become %s ",Helpgrade->Name,new_name);
-				strcpy(Helpname->Name,new_name);
+				printf("                                 Name updated successfullly and become %s ",Helpgrade->Name,new_name);sleep(2);
+				strcpy(Helpname->Name,new_name);deco();
 				break;
 			}
 			Helpname = Helpname ->NEXT;
@@ -368,6 +374,6 @@ void Edit_student_name()
 
 		if (!found)
 		{
-			printf("                       Student with ID %d Not Found \n", student_id);
+			printf("                       Student with ID %d Not Found \n", student_id);sleep(2);deco();
 		}
 }
