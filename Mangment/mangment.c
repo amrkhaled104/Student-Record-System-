@@ -33,6 +33,7 @@ void system_init()
 
 		u32 choice=0,i=0;
 		if(choice==1||choice==2||i==0){
+	    deco();
 			//decoration
 
 		printf("\n\n"
@@ -54,9 +55,11 @@ void system_init()
 			printf("                     1-->Admin                                                  2-->User\n\n");
 			ES current_error_state=take_number(&choice);
 			Error(current_error_state);
+			deco();
 			if(current_error_state==valid) break;
+			
 		}
-		clearScreen();
+
 		switch(choice)
 		{
 			case 1:
@@ -75,7 +78,7 @@ void system_init()
 
 		}
 		if(Logout) {
-		clearScreen();
+		
 		printf("                            Bya Bya Htw7shniiiiiiiiii ");
 
 		break;
@@ -164,7 +167,7 @@ void save_data()
 
 		FILE *file = fopen("STUDENTS.csv", "a");
 		if (file == NULL) {
-			printf("Error opening file.\n");
+			printf("                                            Error opening file.\n");
 			exit(1);
 		}
 
@@ -210,4 +213,82 @@ void load_data()
     }
 
     fclose(file);
+}
+int welcome_admin() {
+    char Username[50];
+    char Pasword[50];
+	
+    FILE *file;
+    long size;
+
+   
+    file = fopen("admin.csv", "r");
+
+   
+    if (file == NULL) {
+        printf("Error opening file.");
+        exit(1);
+    }
+
+    // انتقل إلى نهاية الملف
+    fseek(file, 0, SEEK_END);
+
+    // احصل على موقع المؤشر (حجم الملف)
+    size = ftell(file);
+    
+    // إعادة ضبط المؤشر إلى بداية الملف
+    rewind(file);
+
+    // التحقق من حجم الملف
+    if (size == 0) {
+        printf("\n\n\n                                             Enta Enharda Sa7eb El Ma7roba Dee\n\n\n                                            Eb3t B2it El7isaB Ya S7bii\n\n");
+		sleep(5);
+		clearScreen();
+		printf("                                                   Now you will enter the data to the system owner\n\n\n");
+		sleep(2);
+		deco();
+        printf("                                                   Enter Username: ");
+        scanf("%s", Username); deco();
+        printf("                                                   Enter Pasword: ");
+		u32 i=0;u8 c;
+        for (i = 0; i < MAX_LENGTH; i++)
+				{
+					c = getch();
+					if(c == 13)
+					   break;
+					printf("*");
+					Pasword[i]=c;
+				}
+				Pasword[i]='\0';
+				deco();
+
+        // إعادة فتح الملف للكتابة
+        fclose(file);
+        file = fopen("admin.csv", "w");
+        if (file == NULL) {
+            printf("                                                   Error opening file.");
+            exit(1);
+        }
+
+        // كتابة البيانات إلى الملف
+        fprintf(file, "%s,%s\n", Username, Pasword);
+
+        // إغلاق الملف
+        fclose(file);
+		//EXIT();
+       return 1;		
+    } else {
+        fclose(file);
+        return 0;
+    }
+}
+void deco(){
+		clearScreen();
+		printf("\n\n\n\n\n\n\n                                                   loading");
+        for(int i=0;i<3;i++)
+            {
+                printf(".");
+                sleep(1);
+            }
+		clearScreen();
 }

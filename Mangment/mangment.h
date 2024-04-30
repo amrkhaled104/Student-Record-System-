@@ -26,4 +26,8 @@ void clear_list();
 void clearScreen();
 //system kolo
 void system_init();
+//to add info about admin
+int  welcome_admin();
+//for decoration
+void deco();
 #endif
