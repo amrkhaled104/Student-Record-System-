@@ -14,6 +14,5 @@ u32 Find_Student();
 void edit_your_password();
  //function to edit his name
 void edit_your_name();
-void system_init();
 #endif
 
