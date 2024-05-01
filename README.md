@@ -2,6 +2,7 @@
 ## A project “using C”
 ### Student record contains the student's name, total grade, unique id, gender, and password.
 <.First, the owner of the system will be welcomed and asked to enter his data.>
+
 ● **The system has two modes**:
 1. Admin mode
 2. User mode
